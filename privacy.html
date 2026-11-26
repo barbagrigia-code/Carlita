@@ -141,12 +141,92 @@ html = """<!DOCTYPE html>
   <h2>15. Контакт</h2>
   <p>З питань щодо конфіденційності та обробки даних можна звернутися за адресою: <strong>[CONTACT_EMAIL]</strong>.</p>
 
-  <footer><p>© Carlita · Політика конфіденційності</p></footer>
+  <h1 lang="en">Privacy Policy</h1>
+
+  <h2>1. General Provisions</h2>
+  <p>Carlita is a Discord assistant with support for Twitch integration. This Privacy Policy applies to data processed by Carlita's technical system when executing commands, managing settings, and providing related features.</p>
+  <p>Carlita is not designed to read or store ordinary user messages in Discord or the contents of text chat history. However, Discord provides the application with interaction data necessary to process commands, button clicks, menu selections, and other interface components.</p>
+
+  <h2>2. Responsible Party</h2>
+  <p>Carlita is developed and technically maintained by an independent project developer.</p>
+  <p>For questions regarding the processing of personal data, privacy, or the exercise of user rights, you can contact the developer using the contact address provided in the "Contact" section of this Privacy Policy.</p>
+
+  <h2>3. Types of Data That May Be Processed</h2>
+  <p>Depending on the features used, Carlita may process the following categories of data:</p>
+  <ul>
+    <li><strong>Discord identifiers:</strong> identifiers of servers, channels, users, and roles required for commands, settings, and assistant features to function.</li>
+    <li><strong>Server settings:</strong> configuration options set by administrators or other authorized users for Carlita to operate on the respective server.</li>
+    <li><strong>Twitch data:</strong> Twitch channel and stream identifiers, as well as publicly available channel and stream information provided through the Twitch API.</li>
+    <li><strong>Carlita's own message data:</strong> identifiers of notification messages and related technical information required to edit, update, or manage those messages.</li>
+    <li><strong>Integration technical data:</strong> data required to interact with the Twitch API, including the Twitch App Access Token.</li>
+  </ul>
+  <p>The Twitch access token is stored locally in Carlita's database and reused for as long as it remains valid. It is required to authenticate requests to the Twitch API.</p>
+
+  <h2>4. Purpose of Data Processing</h2>
+  <p>Data is processed only to the extent necessary for the operation of Carlita's existing features, including:</p>
+  <ul>
+    <li>processing commands and interactions with Carlita's components in Discord;</li>
+    <li>applying settings configured for Discord servers;</li>
+    <li>connecting Twitch channels and retrieving information about channels and streams;</li>
+    <li>creating, updating, and managing stream notification messages;</li>
+    <li>storing stream history and supporting related features.</li>
+  </ul>
+
+  <h2>5. Legal Basis for Data Processing</h2>
+  <p>Data is processed to the extent necessary to provide Carlita's features, fulfill user requests, and apply Discord server settings.</p>
+  <p>When integrations are used, processing may also be necessary to interact with Discord and Twitch and retrieve information required for the relevant features.</p>
+
+  <h2>6. Data Storage</h2>
+  <p>At the current stage, Carlita operates on the developer's local hardware. Data required for its operation is stored locally, including in an SQLite database.</p>
+  <p>Currently, Carlita does not use its own cloud database or a separate cloud server to store this data.</p>
+  <p>Data retention periods depend on the type of data and the requirements of the relevant feature. Data may remain in the local database for as long as it is needed to operate settings, integrations, messages, or stream history. Specific retention periods for all data categories have not yet been established.</p>
+
+  <h2>7. Third-Party Platforms</h2>
+  <p>Carlita uses Discord and Twitch platforms to operate. When interacting with these platforms, relevant data may be transferred to or received from them, depending on the features being used.</p>
+  <ul>
+    <li><strong>Discord:</strong> <a href="https://discord.com/privacy" target="_blank" rel="noopener noreferrer">Discord Privacy Policy</a>.</li>
+    <li><strong>Twitch:</strong> <a href="https://www.twitch.tv/p/legal/privacy-notice/" target="_blank" rel="noopener noreferrer">Twitch Privacy Notice</a>.</li>
+  </ul>
+  <p>Data processing carried out by Discord and Twitch themselves is governed by their own documents and policies.</p>
+
+  <h2>8. Data Transfers</h2>
+  <p>To ensure Carlita's operation, necessary data may be exchanged between Carlita and the Discord and Twitch platforms through their official application programming interfaces (APIs).</p>
+  <p>At the current stage, Carlita's data is stored locally on the developer's hardware. No separate cloud database is used to store this data.</p>
+  <p>The Carlita developer may have access to the local environment and data for maintenance, troubleshooting, and ensuring the proper operation of the assistant.</p>
+
+  <h2>9. Data Security</h2>
+  <p>Reasonable technical and organizational measures are applied to protect data, taking into account the project's current scale and architecture. Since Carlita currently operates on local hardware, security also depends on the protection of that hardware, accounts, and the environment in which the assistant runs.</p>
+  <p>No method of storing or transmitting data can guarantee absolute security. Therefore, complete protection against all possible threats cannot be promised.</p>
+
+  <h2>10. Protection of Credentials and Tokens</h2>
+  <p>Technical credentials, including access tokens, are used to authenticate and enable Carlita to interact with third-party platforms.</p>
+  <p>The Twitch App Access Token is stored in Carlita's local database and used to make requests to the Twitch API. Such technical data is not intended to be publicly disclosed or displayed to ordinary users.</p>
+  <p>The protection of this data depends, among other things, on the security of the local hardware, access to project files, and the environment in which Carlita operates.</p>
+
+  <h2>11. Data Requests</h2>
+  <p>If you have any questions about this Privacy Policy or the data that may be processed by Carlita, please contact us using the contact address provided below.</p>
+  <p>The ability to fulfill a request concerning specific data depends on its type, the possibility of identifying the relevant records, and applicable legal requirements.</p>
+
+  <h2>12. Data Deletion</h2>
+  <p>Users or administrators of Discord servers may contact the Carlita developer to request the deletion of data associated with the use of the assistant.</p>
+  <p>To process a request, information may be required to identify the relevant Discord server, account, or database records.</p>
+  <p>Data deletion is carried out taking into account the type of data, the technical feasibility of deletion, and applicable legal requirements. Certain technical records may be retained for as long as necessary to ensure Carlita's operation.</p>
+  <p>Removing Carlita from a Discord server should not, by itself, be considered confirmation that all data associated with that server has been automatically deleted from the local database.</p>
+
+  <h2>13. User Rights</h2>
+  <p>Users may contact the Carlita developer to request information about which of their personal data is processed by the assistant and for what purposes.</p>
+  <p>Depending on the circumstances and applicable legal requirements, users may also request the correction of inaccurate data, the deletion of certain data, or additional clarification regarding its processing.</p>
+  <p>Such requests are considered individually, taking into account Carlita's technical capabilities and applicable legal requirements.</p>
+
+  <h2>14. Changes to This Policy</h2>
+  <p>This Privacy Policy may be updated as Carlita evolves, its features change, or its data processing practices are modified. The current version will be published on the document page, indicating its effective date.</p>
+
+  <h2>15. Contact</h2>
+  <p>For questions regarding privacy and data processing, you can contact us at: <strong>[CONTACT_EMAIL]</strong>.</p>
+
+<footer>
+  <p>© Carlita · Privacy Policy</p>
+</footer>
 </main>
 </body>
 </html>
-"""
-
-path = Path("/mnt/data/privacy-uk.html")
-path.write_text(html, encoding="utf-8")
-print(f"Створено файл: {path}\nРозмір: {path.stat().st_size:,} байтів")
