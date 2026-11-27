@@ -4,21 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Умови користування помічником Carlita для Discord із підтримкою Twitch.">
-  <title>Умови користування — Carlita</title>
+  <title>Політика конфіденційності — Carlita</title>
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f5f6f8; --surface: #fff; --text: #20242b;
-      --muted: #626b78; --border: #e1e5eb; --link: #315fbd;
-      --accent: #edf2fc;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        color-scheme: dark;
-        --bg: #15181d; --surface: #1e232b; --text: #edf0f4;
-        --muted: #aab3c0; --border: #343c48; --link: #9bbaff;
-        --accent: #252f40;
-      }
+      color-scheme: dark;
+
+      --bg: #15181d;
+      --surface: #1e232b;
+      --text: #edf0f4;
+      --muted: #aab3c0;
+      --border: #343c48;
+      --link: #9bbaff;
+      --accent: #252f40;
     }
     * { box-sizing: border-box; }
     body {
@@ -88,7 +85,9 @@
   <a class="language-switch" href="#en">EN</a>
   </div>
     <h1>Політика конфіденційності</h1>
-    <p class="subtitle">Carlita · Дата набрання чинності: [DATE]</p>
+    <p class="subtitle">
+      Carlita · Дата набрання чинності: <strong><time data-date></time></strong>
+    </p>
 
     <p>Ця Політика конфіденційності пояснює, які дані можуть оброблятися під час використання помічника Carlita для Discord, з якою метою це відбувається та як ці дані зберігаються.</p>
     <p class="notice">Carlita перебуває на етапі активної розробки. Фактичний набір функцій і даних, що обробляються, може змінюватися разом із розвитком проєкту.</p>
@@ -172,7 +171,9 @@
       <p>Ця Політика може оновлюватися в міру розвитку Carlita, зміни її функцій або способів обробки даних. Актуальна редакція публікуватиметься на сторінці документа із зазначенням дати набрання чинності.</p>
 
       <h2>15. Контакт</h2>
-      <p>З питань щодо конфіденційності та обробки даних можна звернутися за адресою: <strong>[CONTACT_EMAIL]</strong>.</p>
+      <p>
+        З питань щодо конфіденційності та обробки даних можна звернутися за адресою: <strong><a data-email></a></strong>.
+      </p>
 
   <footer>
   </footer>
@@ -185,7 +186,9 @@
   </div>
       <h1>Privacy Policy</h1>
 
-      <p class="subtitle">Carlita · Effective date: [DATE]</p>
+      <p class="subtitle">
+        Carlita · Effective date: <strong><time data-date></time></strong>
+      </p>
 
       <p>This Privacy Policy explains what data may be processed when using the Carlita Discord assistant, why such processing takes place, and how this data is stored.</p>
 
@@ -270,7 +273,9 @@
       <p>This Privacy Policy may be updated as Carlita evolves, its features change, or its data processing practices are modified. The current version will be published on the document page, indicating its effective date.</p>
 
       <h2>15. Contact</h2>
-      <p>For questions regarding privacy and data processing, you can contact us at: <strong>[CONTACT_EMAIL]</strong>.</p>
+      <p>
+        For questions regarding privacy and data processing, you can contact us at: <strong><a data-email></a></strong>.
+      </p>
     </section>
   </div>
 
@@ -278,5 +283,25 @@
     <p><a href="index.html">Carlita</a></p>
   </footer>
 </main>
+
+<script>
+  const config = {
+    dateUk: '27 листопада 2026',
+    dateEn: '27 November 2026',
+    email: 'your@email.com'
+  };
+
+  document.querySelectorAll('[data-date]').forEach(element => {
+  element.textContent = element.closest('#en')
+    ? config.dateEn
+    : config.dateUk;
+  });
+
+  document.querySelectorAll('[data-email]').forEach(element => {
+    element.textContent = config.email;
+    element.href = `mailto:${config.email}`;
+  });
+</script>
+
 </body>
 </html>
