@@ -6,85 +6,155 @@
   <meta name="description" content="Умови користування помічником Carlita для Discord із підтримкою Twitch.">
   <title>Умови користування — Carlita</title>
   <style>
-    :root { color-scheme: light dark; }
-    body {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1.25rem 4rem;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.7;
+    :root {
+      color-scheme: light;
+      --bg: #f5f6f8; --surface: #fff; --text: #20242b;
+      --muted: #626b78; --border: #e1e5eb; --link: #315fbd;
+      --accent: #edf2fc;
     }
-    h1, h2 { line-height: 1.25; }
-    h1 { margin-bottom: .35rem; }
-    .subtitle { margin-top: 0; opacity: .75; }
-    .language { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #8888; }
-    a { overflow-wrap: anywhere; }
-    footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #8888; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --bg: #15181d; --surface: #1e232b; --text: #edf0f4;
+        --muted: #aab3c0; --border: #343c48; --link: #9bbaff;
+        --accent: #252f40;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 36px 18px; background: var(--bg); color: var(--text);
+      font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      max-width: 900px; margin: 0 auto; padding: 42px clamp(22px, 5vw, 58px);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 18px; box-shadow: 0 8px 30px rgba(0,0,0,.05);
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(2rem, 5vw, 2.6rem); line-height: 1.2; }
+    h2 { margin: 34px 0 12px; font-size: 1.35rem; line-height: 1.35; }
+    p, ul { margin: 10px 0 16px; }
+    li { margin: 6px 0; }
+    a { color: var(--link); overflow-wrap: anywhere; }
+    .language-switch-row {
+      text-align: right;
+      margin-bottom: 12px;
+    }
+
+    .language-switch {
+      display: inline-block;
+      padding: 4px 8px;
+      color: var(--text);
+      background: transparent;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .language-switch:hover {
+      text-decoration: underline;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    #uk {
+      scroll-margin-top: 60px;
+    }
+
+    #en {
+      scroll-margin-top: 60px;
+    }
+    .subtitle { margin: 0 0 28px; color: var(--muted); }
+    .notice {
+      padding: 14px 16px; border-left: 3px solid var(--link);
+      background: var(--accent); border-radius: 6px;
+    }
+    footer {
+      margin-top: 42px; padding-top: 18px; border-top: 1px solid var(--border);
+      color: var(--muted); font-size: .92rem;
+    }
+    @media (max-width: 560px) {
+      body { padding: 12px 8px; }
+      main { padding: 28px 18px; border-radius: 12px; }
+    }
   </style>
 </head>
 <body>
-  <main>
+<main>
+  <div id="uk">
+  <div class="language-switch-row">
+  <a class="language-switch" href="#en">EN</a>
+  </div>
     <h1>Умови користування Carlita</h1>
-    <p class="subtitle"><em>Terms of Service</em></p>
-    <p><strong>Дата набрання чинності:</strong> буде визначена перед публікацією.</p>
+    <p class="subtitle">Carlita · Дата набрання чинності: [DATE]</p>
 
-    <h2>1. Загальні положення</h2>
-    <p>Carlita — помічник для Discord із підтримкою інтеграції Twitch. Ці Умови визначають основні правила використання Carlita та пов’язаних із нею функцій.</p>
-    <p>Використовуючи Carlita, ви погоджуєтеся дотримуватися цих Умов, а також правил Discord і Twitch у частині, що стосується використання відповідних платформ.</p>
-    <p>Carlita перебуває на етапі активної розробки. Її функції, інтерфейс і принципи роботи можуть змінюватися.</p>
+      <h2>1. Загальні положення</h2>
+      <p>Carlita — помічник для Discord із підтримкою інтеграції Twitch. Ці Умови визначають основні правила використання Carlita та пов’язаних із нею функцій.</p>
+      <p>Використовуючи Carlita, ви погоджуєтеся дотримуватися цих Умов, а також правил Discord і Twitch у частині, що стосується використання відповідних платформ.</p>
+      <p>Carlita перебуває на етапі активної розробки. Її функції, інтерфейс і принципи роботи можуть змінюватися.</p>
 
-    <h2>2. Доступність сервісу</h2>
-    <p>На поточному етапі Carlita доступна в обмеженому режимі. Її додавання до Discord-серверів, а також підключення Twitch-каналів здійснюються вручну та за погодженням із розробником.</p>
-    <p>Carlita працює на локальному обладнанні розробника. Її доступність залежить від електропостачання, інтернет-з’єднання та працездатності обладнання.</p>
-    <p>Безперервна або цілодобова робота сервісу не гарантується. Можливі тимчасові перебої, технічне обслуговування та перерви в роботі.</p>
+      <h2>2. Доступність сервісу</h2>
+      <p>На поточному етапі Carlita доступна в обмеженому режимі. Її додавання до Discord-серверів, а також підключення Twitch-каналів здійснюються вручну та за погодженням із розробником.</p>
+      <p>Carlita працює на локальному обладнанні розробника. Її доступність залежить від електропостачання, інтернет-з’єднання та працездатності обладнання.</p>
+      <p>Безперервна або цілодобова робота сервісу не гарантується. Можливі тимчасові перебої, технічне обслуговування та перерви в роботі.</p>
 
-    <h2>3. Вартість використання</h2>
-    <p>Carlita є безкоштовним проєктом. Наразі вона не має платних функцій або підписок.</p>
-    <p>Якщо в майбутньому умови використання або модель фінансування зміняться, відповідна інформація буде опублікована окремо.</p>
+      <h2>3. Вартість використання</h2>
+      <p>Carlita є безкоштовним проєктом. Наразі вона не має платних функцій або підписок.</p>
+      <p>Якщо в майбутньому умови використання або модель фінансування зміняться, відповідна інформація буде опублікована окремо.</p>
 
-    <h2>4. Використання команд і дозволи</h2>
-    <p>Доступ до команд Carlita може залежати від дозволів користувача та налаштувань Discord-сервера.</p>
-    <p>У межах запланованої системи керування дозволами:</p>
-    <ul>
-      <li>Адміністратори Discord-сервера зможуть самостійно налаштовувати доступ до команд і функцій Carlita в межах свого сервера.</li>
-      <li>Учасники сервера зможуть використовувати команди відповідно до встановлених дозволів.</li>
-      <li>Власник проєкту Carlita зберігатиме повний доступ до функцій помічника незалежно від наявності адміністративних прав на конкретному Discord-сервері.</li>
-    </ul>
-    <p>Ці можливості впроваджуватимуться поступово. Їхня доступність залежатиме від поточної версії Carlita.</p>
+      <h2>4. Використання команд і дозволи</h2>
+      <p>Доступ до команд Carlita може залежати від дозволів користувача та налаштувань Discord-сервера.</p>
+      <p>У межах запланованої системи керування дозволами:</p>
+      <ul>
+        <li>Адміністратори Discord-сервера зможуть самостійно налаштовувати доступ до команд і функцій Carlita в межах свого сервера.</li>
+        <li>Учасники сервера зможуть використовувати команди відповідно до встановлених дозволів.</li>
+        <li>Власник проєкту Carlita зберігатиме повний доступ до функцій помічника незалежно від наявності адміністративних прав на конкретному Discord-сервері.</li>
+      </ul>
+      <p>Ці можливості впроваджуватимуться поступово. Їхня доступність залежатиме від поточної версії Carlita.</p>
 
-    <h2>5. Обов’язки користувачів та адміністраторів</h2>
-    <p>Користувачі зобов’язуються:</p>
-    <ul>
-      <li>використовувати Carlita відповідно до призначення;</li>
-      <li>не намагатися порушувати її роботу або перешкоджати її функціонуванню;</li>
-      <li>дотримуватися правил Discord, Twitch та чинного законодавства;</li>
-      <li>не використовувати команди й функції Carlita для незаконних дій або порушення прав інших осіб.</li>
-    </ul>
-    <p>Адміністратори серверів відповідають за налаштування власного Discord-сервера та розподіл дозволів між його учасниками.</p>
+      <h2>5. Обов’язки користувачів та адміністраторів</h2>
+      <p>Користувачі зобов’язуються:</p>
+      <ul>
+        <li>використовувати Carlita відповідно до призначення;</li>
+        <li>не намагатися порушувати її роботу або перешкоджати її функціонуванню;</li>
+        <li>дотримуватися правил Discord, Twitch та чинного законодавства;</li>
+        <li>не використовувати команди й функції Carlita для незаконних дій або порушення прав інших осіб.</li>
+      </ul>
+      <p>Адміністратори серверів відповідають за налаштування власного Discord-сервера та розподіл дозволів між його учасниками.</p>
 
-    <h2>6. Сторонні платформи</h2>
-    <p>Carlita використовує можливості сторонніх платформ, зокрема Discord і Twitch.</p>
-    <p>Робота інтеграцій залежить від доступності та правил відповідних платформ. Carlita не контролює їхню роботу, зміни політик або доступність їхніх API.</p>
-    <p>Використання Discord і Twitch також регулюється умовами та політиками цих платформ.</p>
+      <h2>6. Сторонні платформи</h2>
+      <p>Carlita використовує можливості сторонніх платформ, зокрема Discord і Twitch.</p>
+      <p>Робота інтеграцій залежить від доступності та правил відповідних платформ. Carlita не контролює їхню роботу, зміни політик або доступність їхніх API.</p>
+      <p>Використання Discord і Twitch також регулюється умовами та політиками цих платформ.</p>
 
-    <h2>7. Обмеження відповідальності</h2>
-    <p>Carlita надається без гарантій безперервної доступності або безпомилкової роботи.</p>
-    <p>Розробник докладає зусиль для підтримки працездатності та покращення надійності проєкту, однак не гарантує відсутності помилок, перебоїв або тимчасової недоступності окремих функцій.</p>
+      <h2>7. Обмеження відповідальності</h2>
+      <p>Carlita надається без гарантій безперервної доступності або безпомилкової роботи.</p>
+      <p>Розробник докладає зусиль для підтримки працездатності та покращення надійності проєкту, однак не гарантує відсутності помилок, перебоїв або тимчасової недоступності окремих функцій.</p>
 
-    <h2>8. Зміни та припинення роботи</h2>
-    <p>Розробник може змінювати, оновлювати, тимчасово обмежувати або припиняти роботу окремих функцій Carlita.</p>
-    <p>У разі суттєвих змін цих Умов оновлена версія буде опублікована в офіційному репозиторії проєкту.</p>
+      <h2>8. Зміни та припинення роботи</h2>
+      <p>Розробник може змінювати, оновлювати, тимчасово обмежувати або припиняти роботу окремих функцій Carlita.</p>
+      <p>У разі суттєвих змін цих Умов оновлена версія буде опублікована в офіційному репозиторії проєкту.</p>
 
-    <h2>9. Конфіденційність</h2>
-    <p>Порядок обробки технічної інформації та інших даних, пов’язаних із використанням Carlita, описано в окремому документі — <a href="privacy.html">Політиці конфіденційності</a>.</p>
+      <h2>9. Конфіденційність</h2>
+      <p>Порядок обробки технічної інформації та інших даних, пов’язаних із використанням Carlita, описано в окремому документі — <a href="privacy.html">Політиці конфіденційності</a>.</p>
 
-    <h2>10. Контакт</h2>
-    <p>З питань щодо Carlita та цих Умов можна звернутися за адресою:</p>
-    <p><strong>[CONTACT_EMAIL]</strong></p>
+      <h2>10. Контакт</h2>
+      <p>З питань щодо конфіденційності та обробки даних можна звернутися за адресою: <strong>[CONTACT_EMAIL]</strong>.</p>
+
+  <footer>
+  </footer>
 
     <section class="language" lang="en">
+  </div>
+    <div id="en" class="language-section">
+    <div class="language-switch-row">
+    <a class="language-switch" href="#uk">UK</a>
+  </div>
       <h1>Carlita Terms of Service</h1>
-      <p><strong>Effective date:</strong> To be determined before publication.</p>
+
+      <p class="subtitle">Carlita · Effective date: [DATE]</p>
 
       <h2>1. General Provisions</h2>
       <p>Carlita is a Discord assistant with Twitch integration. These Terms describe the basic rules governing the use of Carlita and its related features.</p>
@@ -137,12 +207,13 @@
       <p>Information about the processing of technical information and other data associated with the use of Carlita is described in a separate document — the <a href="privacy.html">Privacy Policy</a>.</p>
 
       <h2>10. Contact</h2>
-      <p>For questions regarding Carlita or these Terms, please contact:</p>
-      <p><strong>[CONTACT_EMAIL]</strong></p>
+      <p>For questions regarding privacy and data processing, you can contact us at: <strong>[CONTACT_EMAIL]</strong>.</p>
     </section>
-  </main>
+  </div>
+
   <footer>
     <p><a href="index.html">Carlita</a></p>
   </footer>
+</main>
 </body>
 </html>
