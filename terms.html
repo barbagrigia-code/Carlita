@@ -225,8 +225,21 @@
   const config = {
     dateUk: '27 листопада 2026',
     dateEn: '27 November 2026',
-    email: 'your@email.com'
+    email: 'your@email.com',
+
+    titleUk: 'Умови користування — Carlita',
+    titleEn: 'Terms of Service — Carlita',
   };
+
+  function updatePageTitle() {
+  document.title = location.hash === '#en'
+    ? config.titleEn
+    : config.titleUk;
+  }
+
+  updatePageTitle();
+
+  window.addEventListener('hashchange', updatePageTitle);
 
   document.querySelectorAll('[data-date]').forEach(element => {
   element.textContent = element.closest('#en')
