@@ -82,15 +82,15 @@
 <main>
   <div id="uk">
   <div class="language-switch-row">
-  <a class="language-switch" href="#en">EN</a>
+  <a class="language-switch" href="#en" onclick="setLanguage('en'); return false;">EN</a>
   </div>
     <h1>Політика конфіденційності</h1>
     <p class="subtitle">
       Carlita · Дата набрання чинності: <strong><time data-date></time></strong>
     </p>
 
-    <p>Ця Політика конфіденційності пояснює, які дані можуть оброблятися під час використання помічника Carlita для Discord, з якою метою це відбувається та як ці дані зберігаються.</p>
-    <p class="notice">Carlita перебуває на етапі активної розробки. Фактичний набір функцій і даних, що обробляються, може змінюватися разом із розвитком проєкту.</p>
+      <p>Ця Політика конфіденційності пояснює, які дані можуть оброблятися під час використання помічника Carlita для Discord, з якою метою це відбувається та як ці дані зберігаються.</p>
+      <p class="notice">Carlita перебуває на етапі активної розробки. Фактичний набір функцій і даних, що обробляються, може змінюватися разом із розвитком проєкту.</p>
 
       <h2>1. Загальні положення</h2>
       <p>Carlita — помічник для Discord із підтримкою інтеграції Twitch. Ця Політика стосується даних, які обробляються технічною системою Carlita під час виконання команд, налаштувань та пов’язаних функцій.</p>
@@ -175,14 +175,11 @@
         З питань щодо конфіденційності та обробки даних можна звернутися за адресою: <strong><a data-email></a></strong>.
       </p>
 
-  <footer>
-  </footer>
-
     <section class="language" lang="en">
   </div>
     <div id="en" class="language-section">
     <div class="language-switch-row">
-    <a class="language-switch" href="#uk">UK</a>
+    <a class="language-switch" href="#uk" onclick="setLanguage('uk'); return false;">UK</a>
   </div>
       <h1>Privacy Policy</h1>
 
@@ -280,7 +277,7 @@
   </div>
 
   <footer>
-    <p><a href="index.html">Carlita</a></p>
+    <p>© 2026 <a id="home-link" href="index.html#uk">Carlita</a></p>
   </footer>
 </main>
 
@@ -297,26 +294,34 @@
     descriptionEn: 'Privacy Policy for Carlita, a Discord assistant with Twitch integration. Learn how your data is handled and protected.'
 };
 
-  function updatePageTitle() {
-  document.title = location.hash === '#en'
-    ? config.titleEn
-    : config.titleUk;
+  function setLanguage(lang) {
+    const suffix = lang === 'uk' ? 'Uk' : 'En';
+
+    document.documentElement.lang = lang;
+    document.getElementById('home-link').href = `index.html#${lang}`;
+    document.title = config[`title${suffix}`];
+
+    document.querySelector('meta[name="description"]')
+      .setAttribute('content', config[`description${suffix}`]);
+
+    document.getElementById('uk').hidden = lang !== 'uk';
+    document.getElementById('en').hidden = lang !== 'en';
+
+    history.replaceState(null, '', `#${lang}`);
   }
 
-  updatePageTitle();
-
-  window.addEventListener('hashchange', updatePageTitle);
-
   document.querySelectorAll('[data-date]').forEach(element => {
-  element.textContent = element.closest('#en')
-    ? config.dateEn
-    : config.dateUk;
+    element.textContent = element.closest('#en')
+      ? config.dateEn
+      : config.dateUk;
   });
 
   document.querySelectorAll('[data-email]').forEach(element => {
     element.textContent = config.email;
     element.href = `mailto:${config.email}`;
   });
+
+  setLanguage(location.hash === '#en' ? 'en' : 'uk');
 </script>
 
 </body>
