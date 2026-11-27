@@ -1,1 +1,190 @@
-1
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Юридична інформація про помічника Carlita для Discord із підтримкою Twitch.">
+  <title>Юридична інформація — Carlita</title>
+  <style>
+    :root {
+      color-scheme: dark;
+
+      --bg: #15181d;
+      --surface: #1e232b;
+      --text: #edf0f4;
+      --muted: #aab3c0;
+      --border: #343c48;
+      --link: #9bbaff;
+      --accent: #252f40;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0; padding: 36px 18px;
+      background: var(--bg); color: var(--text);
+      font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      max-width: 900px; margin: 0 auto;
+      padding: 42px clamp(22px, 5vw, 58px);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 18px; box-shadow: 0 8px 30px rgba(0,0,0,.05);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 5vw, 2.6rem);
+      line-height: 1.2;
+    }
+
+    h2 {
+      margin: 34px 0 12px;
+      font-size: 1.35rem;
+      line-height: 1.35;
+    }
+
+    p { margin: 10px 0 16px; }
+
+    a {
+      color: var(--link);
+      overflow-wrap: anywhere;
+    }
+
+    .language-switch-row {
+      text-align: right;
+      margin-bottom: 12px;
+    }
+
+    .language-switch {
+      display: inline-block;
+      padding: 4px 8px;
+      color: var(--text);
+      background: transparent;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .language-switch:hover {
+      text-decoration: underline;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    #uk, #en { scroll-margin-top: 60px; }
+
+    .subtitle {
+      margin: 0 0 28px;
+      color: var(--muted);
+    }
+
+    .document-link {
+      display: block;
+      margin: 12px 0;
+      padding: 14px 16px;
+      background: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .document-link:hover {
+      border-color: var(--link);
+    }
+
+    footer {
+      margin-top: 42px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    @media (max-width: 560px) {
+      body { padding: 12px 8px; }
+      main { padding: 28px 18px; border-radius: 12px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <div id="uk">
+    <div class="language-switch-row">
+    <a class="language-switch" href="#en" onclick="setLanguage('en'); return false;">EN</a>
+    </div>
+
+    <h1>Carlita</h1>
+    <p class="subtitle">
+      Юридична інформація про помічника Carlita для Discord із підтримкою Twitch.
+    </p>
+
+    <h2>Документи</h2>
+
+    <a class="document-link" href="terms.html#uk">
+      Умови використання
+    </a>
+
+    <a class="document-link" href="privacy.html#uk">
+      Політика конфіденційності
+    </a>
+  </div>
+
+  <div id="en">
+    <div class="language-switch-row">
+      <a class="language-switch" href="#uk" onclick="setLanguage('uk'); return false;">UK</a>
+    </div>
+
+    <h1>Carlita</h1>
+    <p class="subtitle">
+      Legal information about Carlita, a Discord assistant with Twitch integration.
+    </p>
+
+    <h2>Documents</h2>
+
+    <a class="document-link" href="terms.html#en">
+      Terms of Service
+    </a>
+
+    <a class="document-link" href="privacy.html#en">
+      Privacy Policy
+    </a>
+  </div>
+
+  <footer>
+    <p>© 2026 Carlita</p>
+  </footer>
+</main>
+
+<script>
+  const config = {
+    titleUk: 'Юридична інформація — Carlita',
+    titleEn: 'Legal Information — Carlita',
+
+    descriptionUk: 'Юридична інформація про помічника Carlita для Discord із підтримкою Twitch.',
+    descriptionEn: 'Legal information about Carlita, a Discord assistant with Twitch integration.'
+  };
+
+  function setLanguage(lang) {
+    const suffix = lang === 'uk' ? 'Uk' : 'En';
+
+    document.documentElement.lang = lang;
+    document.title = config[`title${suffix}`];
+
+    document.querySelector('meta[name="description"]')
+      .setAttribute('content', config[`description${suffix}`]);
+
+    document.getElementById('uk').hidden = lang !== 'uk';
+    document.getElementById('en').hidden = lang !== 'en';
+
+    history.replaceState(null, '', `#${lang}`);
+  }
+
+  setLanguage(location.hash === '#en' ? 'en' : 'uk');
+</script>
+
+</body>
+</html>
