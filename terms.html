@@ -82,7 +82,7 @@
 <main>
   <div id="uk">
   <div class="language-switch-row">
-  <a class="language-switch" href="#en">EN</a>
+  <a class="language-switch" href="#en" onclick="setLanguage('en'); return false;">EN</a>
   </div>
     <h1>Умови використання</h1>
     <p class="subtitle">
@@ -144,14 +144,11 @@
         З питань щодо конфіденційності та обробки даних можна звернутися за адресою: <strong><a data-email></a></strong>.
       </p>
 
-  <footer>
-  </footer>
-
     <section class="language" lang="en">
   </div>
     <div id="en" class="language-section">
     <div class="language-switch-row">
-    <a class="language-switch" href="#uk">UK</a>
+    <a class="language-switch" href="#uk" onclick="setLanguage('uk'); return false;">UK</a>
   </div>
       <h1>Terms of Service</h1>
 
@@ -217,7 +214,7 @@
   </div>
 
   <footer>
-    <p><a href="index.html">Carlita</a></p>
+    <p>© 2026 <a id="home-link" href="index.html#uk">Carlita</a></p>
   </footer>
 </main>
 
@@ -234,26 +231,34 @@
     descriptionEn: 'Terms of Service for Carlita, a Discord assistant with Twitch.'
   };
 
-  function updatePageTitle() {
-  document.title = location.hash === '#en'
-    ? config.titleEn
-    : config.titleUk;
+  function setLanguage(lang) {
+    const suffix = lang === 'uk' ? 'Uk' : 'En';
+
+    document.documentElement.lang = lang;
+    document.getElementById('home-link').href = `index.html#${lang}`;
+    document.title = config[`title${suffix}`];
+
+    document.querySelector('meta[name="description"]')
+      .setAttribute('content', config[`description${suffix}`]);
+
+    document.getElementById('uk').hidden = lang !== 'uk';
+    document.getElementById('en').hidden = lang !== 'en';
+
+    history.replaceState(null, '', `#${lang}`);
   }
 
-  updatePageTitle();
-
-  window.addEventListener('hashchange', updatePageTitle);
-
   document.querySelectorAll('[data-date]').forEach(element => {
-  element.textContent = element.closest('#en')
-    ? config.dateEn
-    : config.dateUk;
+    element.textContent = element.closest('#en')
+      ? config.dateEn
+      : config.dateUk;
   });
 
   document.querySelectorAll('[data-email]').forEach(element => {
     element.textContent = config.email;
     element.href = `mailto:${config.email}`;
   });
+
+  setLanguage(location.hash === '#en' ? 'en' : 'uk');
 </script>
 
 </body>
