@@ -34,8 +34,9 @@ Carlita є безкоштовним проєктом. Наразі вона не
 
 ## Правова інформація
 
-- [Умови надання послуг](terms.html)
-- [Політика конфіденційності](privacy.html)
+- [Умови використання](https://barbagrigia-code.github.io/Carlita/terms.html#uk)
+
+- [Політика конфіденційності](https://barbagrigia-code.github.io/Carlita/privacy.html#uk)
 
 ## Контакт
 
@@ -79,8 +80,9 @@ Carlita is a free project. It currently has no paid features or subscriptions.
 
 ## Legal Information
 
-- [Terms of Service](terms.html)
-- [Privacy Policy](privacy.html)
+- [Terms of Service](https://barbagrigia-code.github.io/Carlita/terms.html#en)
+
+- [Privacy Policy](https://barbagrigia-code.github.io/Carlita/privacy.html#en)
 
 ## Contact
 
